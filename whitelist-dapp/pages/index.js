@@ -44,6 +44,7 @@ export default function Home() {
       await tx.wait();
       setLoading(false);
       await getNumberOfWhitelisted();
+      setJoinedWhitelist(true);
     } catch (err) {
       console.error(err);
     }
@@ -129,12 +130,13 @@ export default function Home() {
         <meta name="description" content="Whitelisting App" />
       </Head>
       <div className={styles.main}>
-        <h1 className={styles.title}> Welcome to Glory Sound Prep</h1>
-
-        <div className={styles.description}>
-          {addressesWhitelisted} have already joined the Whitelist
+        <div>
+          <h1 className={styles.title}> Welcome to Glory Sound Prep</h1>
+          <div className={styles.description}>
+            {addressesWhitelisted} have already joined the Whitelist
+          </div>
+          {renderButton()}
         </div>
-        {renderButton()}
         <div>
           <img className={styles.image} src="./crypto-devs.svg"></img>
         </div>
